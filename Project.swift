@@ -3,6 +3,10 @@ import ProjectDescriptionHelpers
 
 let project = Project(
     name: "PipedrivePersons",
+    packages: [
+        .package(path: "Infrastructure"),
+        .package(path: "InfrastructureImpl"),
+    ],
     settings: .settings,
     targets: [
         .target(
@@ -16,9 +20,19 @@ let project = Project(
             resources: [
                 .glob(pattern: "PipedrivePersons/OnDemandResources/APIKey.json", tags: ["APIKey"])
             ],
-            dependencies: [],
+            dependencies: [
+                .package(product: "Infrastructure"),
+                .package(product: "InfrastructureImpl"),
+            ],
             settings: .settings,
+            additionalFiles: .testPlans,
             onDemandResourcesTags: .tags(initialInstall: ["APIKey"], prefetchOrder: [])
         )
+    ],
+    schemes: [
+        .scheme(
+            name: "InfrastructureTests",
+            testAction: .testPlans([.path("InfrastructureTests.xctestplan")])
+        ),
     ]
 )
