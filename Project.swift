@@ -6,6 +6,8 @@ let project = Project(
     packages: [
         .package(path: "Infrastructure"),
         .package(path: "InfrastructureImpl"),
+        .package(path: "Networking"),
+        .package(path: "NetworkingImpl"),
     ],
     settings: .settings,
     targets: [
@@ -20,8 +22,17 @@ let project = Project(
             dependencies: [
                 .package(product: "Infrastructure"),
                 .package(product: "InfrastructureImpl"),
+                .package(product: "Networking"),
+                .package(product: "NetworkingImpl"),
             ],
-            settings: .settings
+            settings: .settings,
+            additionalFiles: .testPlans
+        )
+    ],
+    schemes: [
+        .scheme(
+            name: "UnitTests",
+            testAction: .testPlans([.path("UnitTests.xctestplan")])
         )
     ]
 )

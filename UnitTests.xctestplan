@@ -1,0 +1,24 @@
+{
+  "configurations" : [
+    {
+      "id" : "A71A818D-E745-43A3-A26D-A6B071DA00AA",
+      "name" : "Configuration 1",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "testTimeoutsEnabled" : true
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:NetworkingImpl",
+        "identifier" : "NetworkingImplTests",
+        "name" : "NetworkingImplTests"
+      }
+    }
+  ],
+  "version" : 1
+}

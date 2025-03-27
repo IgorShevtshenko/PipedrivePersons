@@ -3,25 +3,28 @@
 import PackageDescription
 
 let package = Package(
-    name: "InfrastructureImpl",
+    name: "NetworkingImpl",
     platforms: [.iOS(.v17)],
     products: [
         .library(
-            name: "InfrastructureImpl",
-            targets: ["APIKeyRepositoryImpl"]
-        )
+            name: "NetworkingImpl",
+            targets: ["NetworkingImpl"]
+        ),
     ],
     dependencies: [
-        .package(path: "./Infrastructure"),
         .package(path: "./Networking")
     ],
     targets: [
         .target(
-            name: "APIKeyRepositoryImpl",
+            name: "NetworkingImpl",
+            dependencies: ["Networking"]
+        ),
+        .testTarget(
+            name: "NetworkingImplTests",
             dependencies: [
-                "Infrastructure",
+                "NetworkingImpl",
                 "Networking"
             ]
-        )
+        ),
     ]
 )
