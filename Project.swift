@@ -10,6 +10,7 @@ let project = Project(
         .package(path: "Networking"),
         .package(path: "NetworkingImpl"),
         .package(path: "Utils"),
+        .package(path: "ArchitectureKit"),
     ],
     settings: .settings,
     targets: [
@@ -28,6 +29,7 @@ let project = Project(
                 .package(product: "Networking"),
                 .package(product: "NetworkingImpl"),
                 .package(product: "Utils"),
+                .package(product: "ArchitectureKit"),
             ],
             settings: .settings,
             additionalFiles: .testPlans
