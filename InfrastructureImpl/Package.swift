@@ -8,12 +8,16 @@ let package = Package(
     products: [
         .library(
             name: "InfrastructureImpl",
-            targets: ["APIKeyRepositoryImpl"]
+            targets: [
+                "APIKeyRepositoryImpl",
+                "PersonsRepositoryImpl"
+            ]
         )
     ],
     dependencies: [
         .package(path: "./Infrastructure"),
-        .package(path: "./Networking")
+        .package(path: "./Networking"),
+        .package(path: "./Core")
     ],
     targets: [
         .target(
@@ -21,6 +25,22 @@ let package = Package(
             dependencies: [
                 "Infrastructure",
                 "Networking"
+            ]
+        ),
+        .target(
+            name: "PersonsRepositoryImpl",
+            dependencies: [
+                "Infrastructure",
+                "Networking",
+                .product(name: "Domain", package: "Core")
+            ]
+        ),
+        .testTarget(
+            name: "InfrastructureTests",
+            dependencies: [
+                "PersonsRepositoryImpl",
+                "Networking",
+                .product(name: "Domain", package: "Core")
             ]
         )
     ]

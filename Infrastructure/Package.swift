@@ -8,11 +8,23 @@ let package = Package(
         .library(
             name: "Infrastructure",
             targets: [
-                "APIKeyRepository"
+                "APIKeyRepository",
+                "PersonsRepository"
             ]
         ),
     ],
+    dependencies: [
+        .package(path: "./Core"),
+        .package(path: "./Utils")
+    ],
     targets: [
         .target(name: "APIKeyRepository"),
+        .target(
+            name: "PersonsRepository",
+            dependencies: [
+                "Utils",
+                .product(name: "Domain", package: "Core")
+            ]
+        ),
     ]
 )

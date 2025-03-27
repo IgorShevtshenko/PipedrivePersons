@@ -4,10 +4,12 @@ import ProjectDescriptionHelpers
 let project = Project(
     name: "PipedrivePersons",
     packages: [
+        .package(path: "Core"),
         .package(path: "Infrastructure"),
         .package(path: "InfrastructureImpl"),
         .package(path: "Networking"),
         .package(path: "NetworkingImpl"),
+        .package(path: "Utils"),
     ],
     settings: .settings,
     targets: [
@@ -20,10 +22,12 @@ let project = Project(
             infoPlist: .default,
             sources: ["PipedrivePersons/Sources/**"],
             dependencies: [
+                .package(product: "Domain"),
                 .package(product: "Infrastructure"),
                 .package(product: "InfrastructureImpl"),
                 .package(product: "Networking"),
                 .package(product: "NetworkingImpl"),
+                .package(product: "Utils"),
             ],
             settings: .settings,
             additionalFiles: .testPlans
