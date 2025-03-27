@@ -18,12 +18,13 @@ public extension NetworkClient {
     
     func get<ResponseType: Decodable>(
         path: String,
+        queryItems: [URLQueryItem],
         responseType: ResponseType.Type
     ) async throws(NetworkError) -> ResponseType {
         try await execute(
             method: .get,
             path: path,
-            queryItems: [],
+            queryItems: queryItems,
             body: EmptyRequestBody?.none,
             responseType: responseType
         )
