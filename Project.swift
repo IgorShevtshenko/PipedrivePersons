@@ -11,6 +11,7 @@ let project = Project(
         .package(path: "NetworkingImpl"),
         .package(path: "Utils"),
         .package(path: "ArchitectureKit"),
+        .package(path: "Localization")
     ],
     settings: .settings,
     targets: [
@@ -22,6 +23,7 @@ let project = Project(
             deploymentTargets: .iOS("17.0"),
             infoPlist: .default,
             sources: ["PipedrivePersons/Sources/**"],
+            resources: ["Localization/Sources/Localization/**"],
             dependencies: [
                 .package(product: "Domain"),
                 .package(product: "Infrastructure"),
@@ -30,6 +32,7 @@ let project = Project(
                 .package(product: "NetworkingImpl"),
                 .package(product: "Utils"),
                 .package(product: "ArchitectureKit"),
+                .package(product: "Localization")
             ],
             settings: .settings,
             additionalFiles: .testPlans
