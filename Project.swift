@@ -11,7 +11,8 @@ let project = Project(
         .package(path: "NetworkingImpl"),
         .package(path: "Utils"),
         .package(path: "ArchitectureKit"),
-        .package(path: "Localization")
+        .package(path: "Localization"),
+        .package(path: "UILibrary"),
     ],
     settings: .settings,
     targets: [
@@ -32,7 +33,8 @@ let project = Project(
                 .package(product: "NetworkingImpl"),
                 .package(product: "Utils"),
                 .package(product: "ArchitectureKit"),
-                .package(product: "Localization")
+                .package(product: "Localization"),
+                .package(product: "UILibrary")
             ],
             settings: .settings,
             additionalFiles: .testPlans
