@@ -23,12 +23,17 @@ public struct PersonsView: View {
                     )
                 case .success(let persons):
                     PrimaryList(items: persons) { person in
-                        PersonCell(person: person)
-                            .onAppear {
-                                if persons.last == person, presenter.state.isMoreAvailable {
-                                    presenter.send(.fetchMorePersons)
+                        Button {
+                            presenter.send(.openPersonDetails(person))
+                        } label: {
+                            PersonCell(person: person)
+                                .onAppear {
+                                    if persons.last == person, presenter.state.isMoreAvailable {
+                                        presenter.send(.fetchMorePersons)
+                                    }
                                 }
-                            }
+                        }
+                        
                     }
                 case .empty:
                     ErrorView(
@@ -39,6 +44,14 @@ public struct PersonsView: View {
             }
             .navigationTitle(localisables.persons.navTitle)
             .animation(.default, value: presenter.state.viewState)
+            .navigationDestination(
+                item: Binding(
+                    get: { presenter.state.selectedPerson },
+                    set: { _ in presenter.send(.closePersonDetails) }
+                )
+            ) { person in
+                PersonDetails(person: person)
+            }
         }
     }
 }

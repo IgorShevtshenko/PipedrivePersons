@@ -35,7 +35,11 @@ private extension Target {
             product: product,
             bundleId: "\(ProjectConfiguration.bundleIdentifier).\(name)",
             deploymentTargets: ProjectConfiguration.deploymentTarget,
-            infoPlist: .default,
+            infoPlist: .extendingDefault(
+                with: [
+                    "UILaunchScreen": ""
+                ]
+            ),
             sources: "Sources/**",
             dependencies: [
                 .package(product: "Domain"),

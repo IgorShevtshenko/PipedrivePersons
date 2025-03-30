@@ -56,6 +56,12 @@ public final class PersonsPresenter: Presenter<PersonsState, PersonsAction> {
                 } catch {
                     events.send(.didFailFetching(.init(from: error)))
                 }
+                
+            case .openPersonDetails(let person):
+                events.send(.didChangeSelectedPerson(person))
+                
+            case .closePersonDetails:
+                events.send(.didChangeSelectedPerson(nil))
             }
         }
         .store(in: &cancellables)

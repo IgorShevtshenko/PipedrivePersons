@@ -12,6 +12,9 @@ public enum PersonsReducer {
             
         case .didFailFetching(let error):
             state.viewState = .failed(error)
+            
+        case .didChangeSelectedPerson(let person):
+            state.selectedPerson = person
         }
         return state
     }

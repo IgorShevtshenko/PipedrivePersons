@@ -22,7 +22,11 @@ let app = Project(
             product: .app,
             bundleId: ProjectConfiguration.bundleIdentifier,
             deploymentTargets: ProjectConfiguration.deploymentTarget,
-            infoPlist: .default,
+            infoPlist: .extendingDefault(
+                with: [
+                    "UILaunchScreen": ""
+                ]
+            ),
             sources: ["Sources/**"],
             resources: ["../../Localization/Sources/Localization/Localisables/**"],
             dependencies: [

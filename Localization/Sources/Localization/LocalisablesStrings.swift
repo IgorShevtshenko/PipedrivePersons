@@ -27,5 +27,11 @@ public struct LocalisablesStrings {
         public var noPersons: String {
             String(localized: "noPersons", table: "Persons", bundle: .module)
         }
+        public var emailsSectionTitle: String {
+            String(localized: "emailsSectionTitle", table: "Persons", bundle: .module)
+        }
+        public var phonesSectionTitle: String {
+            String(localized: "phonesSectionTitle", table: "Persons", bundle: .module)
+        }
     }
 }
