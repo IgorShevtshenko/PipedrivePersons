@@ -25,8 +25,8 @@ extension PersonEntity {
         PersonEntity(
             id: id,
             name: "Name",
-            phones: [],
-            emails: []
+            phones: [.init(label: "Work", value: "372 5430 3410")],
+            emails: [.init(label: "Work", value: "test@gmail.com")]
         )
     }
 }

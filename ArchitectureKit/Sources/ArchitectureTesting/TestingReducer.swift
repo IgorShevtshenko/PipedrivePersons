@@ -15,17 +15,17 @@ public final class TestingReducer<State, Event: Equatable> {
     
     private var cancellables = Set<AnyCancellable>()
     
-    init(reducer: @escaping (State, Event) -> State) {
+    public init(reducer: @escaping (State, Event) -> State) {
         self.reducer = reducer
     }
     
     @MainActor
-    func expectEvents(_ expectedEvents: [Event], timeout: TimeInterval) async  {
+    public func expectEvents(_ expectedEvents: [Event], timeout: TimeInterval) async  {
         await confirmation { confirmation in
             do {
                 try await withCheckedThrowingContinuation { continuation in
                     events.sink { events in
-                        if expectedEvents == events {
+                        if expectedEvents == events, events.count == expectedEvents.count {
                             continuation.resume()
                         }
                     }
@@ -45,7 +45,7 @@ public final class TestingReducer<State, Event: Equatable> {
         }
     }
     
-    func reduce(state: State, event: Event) -> State {
+    public func reduce(state: State, event: Event) -> State {
         events.send(events.value + [event])
         return reducer(state, event)
     }

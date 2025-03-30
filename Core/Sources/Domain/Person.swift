@@ -4,7 +4,12 @@ public struct Person: Hashable, Identifiable {
     public let phones: [ContactInfo]
     public let emails: [ContactInfo]
     
-    public init(id: Int, name: String?, phones: [ContactInfo], emails: [ContactInfo]) {
+    public init(
+        id: Int,
+        name: String?,
+        phones: [ContactInfo],
+        emails: [ContactInfo]
+    ) {
         self.id = id
         self.name = name
         self.phones = phones
@@ -15,6 +20,11 @@ public struct Person: Hashable, Identifiable {
 public extension Person {
     
     static func mock(id: Int) -> Person {
-        Person(id: id, name: "Name", phones: [], emails: [])
+        Person(
+            id: id,
+            name: "Name",
+            phones: [.init(label: "Work", contact: "372 5430 3410")],
+            emails: [.init(label: "Work", contact: "test@gmail.com")]
+        )
     }
 }
