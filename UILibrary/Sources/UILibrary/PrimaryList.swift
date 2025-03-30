@@ -17,6 +17,6 @@ public struct PrimaryList<
         List(items) { item in
             cell(item)
         }
-        .listStyle(.insetGrouped)
+        .listStyle(.plain)
     }
 }
