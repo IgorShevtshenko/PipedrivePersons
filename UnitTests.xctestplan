@@ -14,23 +14,30 @@
   "testTargets" : [
     {
       "target" : {
-        "containerPath" : "container:NetworkingImpl",
+        "containerPath" : "container:..\/..\/ArchitectureKit",
+        "identifier" : "ArchitectureKitTests",
+        "name" : "ArchitectureKitTests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:..\/..\/NetworkingImpl",
         "identifier" : "NetworkingImplTests",
         "name" : "NetworkingImplTests"
       }
     },
     {
       "target" : {
-        "containerPath" : "container:InfrastructureImpl",
-        "identifier" : "InfrastructureTests",
-        "name" : "InfrastructureTests"
+        "containerPath" : "container:..\/Features\/Persons\/Persons.xcodeproj",
+        "identifier" : "2E15148EC8FF2F1BC66B83D1",
+        "name" : "PersonsTests"
       }
     },
     {
       "target" : {
-        "containerPath" : "container:ArchitectureKit",
-        "identifier" : "ArchitectureKitTests",
-        "name" : "ArchitectureKitTests"
+        "containerPath" : "container:..\/..\/InfrastructureImpl",
+        "identifier" : "InfrastructureTests",
+        "name" : "InfrastructureTests"
       }
     }
   ],

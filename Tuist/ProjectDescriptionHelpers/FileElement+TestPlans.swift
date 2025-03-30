@@ -4,7 +4,7 @@ public extension [FileElement] {
 
     static var testPlans: [FileElement] {
         [
-            "UnitTests.xctestplan",
+            "../../UnitTests.xctestplan"
         ]
     }
 }

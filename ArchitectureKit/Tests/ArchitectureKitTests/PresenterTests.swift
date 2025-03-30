@@ -17,7 +17,7 @@ struct PresenterTests {
         )
     }
     
-    @Test("Test sent events")
+    @Test("Test send events")
     func testSend() async throws {
         let expectedEvents = [
             SampleEvent.didStartLoading,
